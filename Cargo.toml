@@ -2,7 +2,7 @@
 name = "clickpipe"
 version = "0.1.0"
 edition = "2021"
-authors = ["JaydenCJ"]
+authors = ["JaydenCJ <aisingioro.kiyon@gmail.com>"]
 rust-version = "1.75"
 description = "Pipe filter that turns file paths, URLs, and issue IDs in any command's output into clickable OSC 8 terminal hyperlinks."
 license = "MIT"
