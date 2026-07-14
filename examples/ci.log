@@ -1,0 +1,16 @@
+[ci] running test suite on builder-7 (logs: https://ci.example.test/runs/8841)
+============================= FAILURES =============================
+______________________ test_charge_declined_card ______________________
+Traceback (most recent call last):
+  File "/srv/app/billing/charge.py", line 88, in retry_charge
+    raise GatewayTimeout(attempt=3)
+app.errors.GatewayTimeout: gateway did not answer within 10s
+======================= 1 failed in 12.41s ========================
+[ci] node smoke test:
+    at processOrder (/srv/app/js/orders.js:57:19)
+    at async main (/srv/app/js/index.js:12:3)
+[ci] C build:
+gateway.c:214:9: warning: unused variable 'retries' [-Wunused-variable]
+render.cpp(88,15): error C2065: 'frame': undeclared identifier
+[ci] known flake, tracked in PAY-1204 and upstream acme/gateway#392
+[ci] see the runbook: https://wiki.example.test/runbooks/billing (section 4)

@@ -1,0 +1,18 @@
+[package]
+name = "clickpipe"
+version = "0.1.0"
+edition = "2021"
+authors = ["JaydenCJ"]
+rust-version = "1.75"
+description = "Pipe filter that turns file paths, URLs, and issue IDs in any command's output into clickable OSC 8 terminal hyperlinks."
+license = "MIT"
+repository = "https://github.com/JaydenCJ/clickpipe"
+keywords = ["terminal", "hyperlinks", "osc8", "pipe", "cli"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+# None. clickpipe is std-only by design: offline, deterministic, zero supply chain.
+
+[profile.release]
+strip = true
+lto = true

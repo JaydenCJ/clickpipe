@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="700" viewBox="0 0 1060 700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">
+  <!-- Hand-drawn terminal mockup. Every command, output line and link
+       target matches a real clickpipe v0.1.0 run (rustc 2026-07 output,
+       examples/ci.log); the dump panel shows 6 of its 9 rows and link
+       targets are shown as a hover tooltip would show them. -->
+  <rect width="1060" height="700" rx="10" fill="#1c2128"/>
+  <rect width="1060" height="34" rx="10" fill="#2d333b"/>
+  <rect y="24" width="1060" height="10" fill="#2d333b"/>
+  <circle cx="20" cy="17" r="6" fill="#f47067"/>
+  <circle cx="40" cy="17" r="6" fill="#e0b543"/>
+  <circle cx="60" cy="17" r="6" fill="#57ab5a"/>
+  <text x="530" y="22" text-anchor="middle" fill="#909dab">clickpipe — every path, URL and issue ID, clickable</text>
+
+  <g fill="#adbac7" xml:space="preserve">
+    <text x="24" y="66"><tspan fill="#6cb6ff">$</tspan> cargo build 2&gt;&amp;1 | clickpipe --editor vscode</text>
+    <text x="24" y="92"><tspan fill="#57ab5a" font-weight="bold">   Compiling</tspan> app v0.1.0 (<tspan fill="#6cb6ff" text-decoration="underline">/work/app</tspan>)</text>
+    <text x="24" y="118"><tspan fill="#f47067" font-weight="bold">error[E0308]</tspan><tspan font-weight="bold">: mismatched types</tspan></text>
+    <text x="24" y="144"> <tspan fill="#6cb6ff" font-weight="bold">--&gt; </tspan><tspan fill="#6cb6ff" text-decoration="underline">src/main.rs:2:22</tspan></text>
+    <text x="24" y="170">  <tspan fill="#6cb6ff" font-weight="bold">|</tspan></text>
+    <text x="24" y="196"><tspan fill="#6cb6ff" font-weight="bold">2 |</tspan>     let count: u32 = "three";</text>
+    <text x="24" y="222">  <tspan fill="#6cb6ff" font-weight="bold">|</tspan>                <tspan fill="#6cb6ff" font-weight="bold">---</tspan>   <tspan fill="#f47067" font-weight="bold">^^^^^^^ expected `u32`, found `&amp;str`</tspan></text>
+    <text x="24" y="248">  <tspan fill="#6cb6ff" font-weight="bold">|</tspan>                <tspan fill="#6cb6ff" font-weight="bold">|</tspan></text>
+    <text x="24" y="274">  <tspan fill="#6cb6ff" font-weight="bold">|</tspan>                <tspan fill="#6cb6ff" font-weight="bold">expected due to this</tspan></text>
+
+    <rect x="88" y="288" width="420" height="26" rx="5" fill="#2d333b" stroke="#444c56"/>
+    <text x="98" y="306" fill="#909dab" font-size="13">click → vscode://file/work/app/src/main.rs:2:22</text>
+
+    <text x="24" y="352"><tspan fill="#6cb6ff">$</tspan> ./run-ci.sh 2&gt;&amp;1 | clickpipe --no-check --jira https://tracker.example.test</text>
+    <text x="24" y="380">[ci] known flake, tracked in <tspan fill="#6cb6ff" text-decoration="underline">PAY-1204</tspan> and upstream <tspan fill="#6cb6ff" text-decoration="underline">acme/gateway#392</tspan></text>
+    <text x="24" y="406">  File "<tspan fill="#6cb6ff" text-decoration="underline">/srv/app/billing/charge.py</tspan>", line 88, in retry_charge</text>
+
+    <text x="24" y="450"><tspan fill="#6cb6ff">$</tspan> clickpipe --dump --no-check --host builder-7 --jira https://tracker.example.test &lt; examples/ci.log</text>
+    <text x="24" y="478"><tspan fill="#e0b543">url</tspan>     https://ci.example.test/runs/8841       <tspan fill="#768390">https://ci.example.test/runs/8841</tspan></text>
+    <text x="24" y="504"><tspan fill="#e0b543">path</tspan>    /srv/app/billing/charge.py      <tspan fill="#768390">file://builder-7/srv/app/billing/charge.py</tspan></text>
+    <text x="24" y="530" fill="#768390">⋮       (four more path rows)</text>
+    <text x="24" y="556"><tspan fill="#e0b543">issue</tspan>   PAY-1204        <tspan fill="#768390">https://tracker.example.test/browse/PAY-1204</tspan></text>
+    <text x="24" y="582"><tspan fill="#e0b543">issue</tspan>   acme/gateway#392        <tspan fill="#768390">https://github.com/acme/gateway/issues/392</tspan></text>
+    <text x="24" y="608"><tspan fill="#e0b543">url</tspan>     https://wiki.example.test/runbooks/billing      <tspan fill="#768390">https://wiki.example.test/runbooks/billing</tspan></text>
+
+    <text x="24" y="652" fill="#768390"># same bytes, same colors — plus OSC 8 hyperlinks. Not a TTY? clickpipe</text>
+    <text x="24" y="676" fill="#768390"># passes everything through untouched, like grep --color=auto.</text>
+  </g>
+</svg>
